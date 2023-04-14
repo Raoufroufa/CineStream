@@ -38,7 +38,7 @@ const Heading = () => {
                 </div>
                 <div className='input-group'>
                     <input type='text' placeholder='Enter your search' onChange={(e) => steInputValue(e.target.value)}/>
-                    <HiSearch fontSize={21} color='black' id='search'/>
+                    <HiSearch fontSize={21} color={toggle ? 'black' : "#ff206e"} id='search'/>
                     <div id='Color-switcher' onClick={() => setToggle(!toggle)}>
                        <div id={toggle ? 'Color-switcher-mover' : 'Color-switcher-moved'}></div>
                     </div>
