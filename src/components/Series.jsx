@@ -6,6 +6,7 @@ import {AiOutlineClose} from 'react-icons/ai'
 import {Container} from './Heading'
 import '../Styles/Movies.css'
 import NoImg from '../assets/images/no-image.png'
+import TrailerSeries from '../Trailers/TrailerSeries';
 
 const Series = () => {
   const {toggle, inputValue} = useContext(Container)
@@ -52,6 +53,7 @@ const Series = () => {
               </Fragment>
             )
           })}
+        {trailer ? console.log : <TrailerSeries SeriesTitle={title} toggle={toggle} />}   
         <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className= {toggle ? 'DarkTheme' : 'LightThemeClose'} fontSize={55} color='#fff' cursor={'pointer'} onClick={() => setTrailer(true)} />  
         </div>
       </div>

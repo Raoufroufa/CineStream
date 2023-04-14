@@ -4,12 +4,12 @@ import ReactPlayer from 'react-player';
 import movieTrailer from 'movie-trailer';
 import "../Styles/TrailerMovies.css"
 
-const TrailerMovies = ({moviesTitle, toggle}) => {
+const TrailerTrending = ({trendsTitle, toggle}) => {
     const [video, setVideo] = useState("");
     const [videoURL, setVideoURL] = useState("");
 
     function handleSearch() {
-        setVideo(moviesTitle)
+        setVideo(trendsTitle)
 	    movieTrailer(video).then((res) => {
 	    setVideoURL(res);
 	    });
@@ -21,11 +21,13 @@ const TrailerMovies = ({moviesTitle, toggle}) => {
        <Fragment>
            <div className='Container'></div>
            <div className='player'>
-              <h1 id={toggle ? 'TrailerMovie-name-dark' : 'TrailerMovie-name-light'}>{moviesTitle}</h1>            
+              <h1 id={toggle ? 'TrailerMovie-name-dark' : 'TrailerMovie-name-light'}>{trendsTitle}</h1>         
               <ReactPlayer url={videoURL} controls={true} width={'1000px'} height={'700px'} muted={false} />
 	       </div>
        </Fragment>
     )
 }
 
-export default TrailerMovies
+export default TrailerTrending
+
+

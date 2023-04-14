@@ -6,6 +6,7 @@ import {AiOutlineClose} from 'react-icons/ai'
 import {Container} from './Heading'
 import '../Styles/Movies.css'
 import NoImg from '../assets/images/no-image.png'
+import TrailerTrending from '../Trailers/TrailerTrending';
 
 const Trends = () => {
   const {toggle} = useContext(Container)
@@ -50,6 +51,7 @@ const Trends = () => {
               </Fragment>
             )
           })}
+        {trailer ? console.log : <TrailerTrending trendsTitle={trendTitle} toggle={toggle} />}  
         <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className= {toggle ? 'DarkTheme' : 'LightThemeClose'} fontSize={55} color='#fff' cursor={'pointer'} onClick={() => setTrailer(true)} />  
         </div>
       </div>
