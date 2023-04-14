@@ -28,7 +28,9 @@ const Series = () => {
     setSeriesData(results)
   }
   useEffect(() => {
-    SeriesCall()
+    setTimeout(() => {
+      SeriesCall()
+    }, 100)
   })
   const serieTitle = (serie) => {
     setTitle(serie.name)

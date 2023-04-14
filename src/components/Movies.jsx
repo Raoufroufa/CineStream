@@ -6,6 +6,7 @@ import {AiOutlineClose} from 'react-icons/ai'
 import {Container} from './Heading'
 import '../Styles/Movies.css'
 import NoImg from '../assets/images/no-image.png'
+import TrailerMovies from '../Trailers/TrailerMovies';
 
 const Movies = () => {
   const {toggle, inputValue} = useContext(Container)
@@ -28,7 +29,10 @@ const Movies = () => {
     setMoviesData(results)
   }
   useEffect(() => {
-    MovieCall()
+    setTimeout(() => {
+       MovieCall()
+    }, 100)
+  
   })
   const moviesTitle = (movie) => {
     setMovieTitle(movie.title)
@@ -42,7 +46,7 @@ const Movies = () => {
         <div className='movies-container'>
           {moviesData.map((movie) => {
             return(
-              <Fragment>
+              <Fragment key={movie.id}>
                 <div id={trailer ? 'container' : 'NoContainer'}>
                   <AiFillPlayCircle color='#fff' fontSize={40} id={trailer ? "playIcon" : "hide"} onClick={() => moviesTitle(movie)} />
                   <img src={movie.poster_path ? `${Images}${movie.poster_path}` : NoImg } alt='' onClick={() => moviesTitle(movie)}/>
@@ -51,6 +55,7 @@ const Movies = () => {
               </Fragment>
             )
           })}
+        {trailer ? console.log : <TrailerMovies MoviesTitle={MovieTitle} />}  
         <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className= {toggle ? 'DarkTheme' : 'LightThemeClose'} fontSize={55} color='#fff' cursor={'pointer'} onClick={() => setTrailer(true)} />  
         </div>
       </div>
